@@ -1,8 +1,6 @@
 /// <reference types="vitest" />
-// @ts-ignore
 import path from "path";
 import { defineConfig } from "vite";
-// @ts-ignore
 import packageJson from "./package.json";
 
 const getPackageName = () => {
@@ -34,6 +32,11 @@ module.exports = defineConfig({
       name: getPackageNameCamelCase(),
       formats,
       fileName: format => fileName[format],
+    },
+    rollupOptions: {
+      input: {
+        main: "index.html",
+      },
     },
   },
   test: {},
