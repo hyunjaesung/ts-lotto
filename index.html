@@ -8,13 +8,13 @@
   </head>
   <body>
     <div id="app">
-      <form>
+      <div>
         <div>구매할 금액은 얼마 입네까</div>
         <input type="number" id="purchase-money-input" required />
-        <button type="submit" id="purchase-money-button">확인</button>
-      </form>
+        <button id="purchase-money-button">확인</button>
+      </div>
       <ul id="lotto-tickets-list"></ul>
-      <form>
+      <div>
         <div>당첨 번호를 입력하세요</div>
         <input
           type="number"
@@ -23,8 +23,8 @@
           maxlength="6"
           required
         />
-        <button type="submit" id="winning-lotto-numbers-button">확인</button>
-      </form>
+        <button id="winning-lotto-numbers-button">확인</button>
+      </div>
       <div id="lotto-result"></div>
     </div>
     <script type="module" src="/src/index.ts"></script>

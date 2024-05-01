@@ -7,4 +7,8 @@ export class LottoTicket {
   constructor() {
     this.lottoNumbers = LottoNumberGenerator.generate();
   }
+
+  get numbers() {
+    return this.lottoNumbers.map(lottoNumber => lottoNumber.number);
+  }
 }
