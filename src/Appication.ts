@@ -1,10 +1,9 @@
 import { LottoGame } from "./business/LottoGame";
 import { LottoView } from "./view/LottoView";
 import { LottoTicketList } from "./view/components/LottoTicketList";
-import { PurchaseMoney } from "./view/components/PurchaseMoney";
-import { WinningLottoNumbers } from "./view/components/WinningLottoNumbers";
 import { Button } from "./view/components/common/Button";
 import { Input } from "./view/components/common/Input";
+import { InputWithSubmit } from "./view/components/common/InputWithSubmit";
 import { LottoViewSelector } from "./view/constant/selectors";
 
 type Props = {
@@ -18,11 +17,11 @@ export class Application {
   constructor({ selectors }: Props) {
     this.lottoGame = new LottoGame();
     this.lottoView = new LottoView({
-      purchaseMoney: new PurchaseMoney({
+      purchaseMoney: new InputWithSubmit({
         input: new Input(selectors.PURCHASE_MONEY_INPUT),
         confirmButton: new Button(selectors.PURCHASE_MONEY_BUTTON),
       }),
-      winningLottoNumbers: new WinningLottoNumbers({
+      winningLottoNumbers: new InputWithSubmit({
         input: new Input(selectors.WINNING_LOTTO_NUMBER_INPUT),
         confirmButton: new Button(selectors.WINNING_LOTTO_NUMBER_BUTTON),
       }),

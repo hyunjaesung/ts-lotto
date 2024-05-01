@@ -1,7 +1,7 @@
-import { Button } from "./common/Button";
-import { Input } from "./common/Input";
+import { Button } from "./Button";
+import { Input } from "./Input";
 
-export class PurchaseMoney {
+export class InputWithSubmit {
   private readonly input: Input;
   private readonly confirmButton: Button;
 
@@ -16,7 +16,7 @@ export class PurchaseMoney {
     this.confirmButton = confirmButton;
   }
 
-  init({ onConfirm }: { onConfirm: (purchaseMoney: number) => void }) {
+  init({ onConfirm }: { onConfirm: (value: number) => void }) {
     this.confirmButton.addClickEventListener(() =>
       onConfirm(+this.input.value)
     );
