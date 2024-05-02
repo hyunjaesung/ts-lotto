@@ -1,13 +1,61 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vite App</title>
-</head>
-<body>
-<div id="app"></div>
-<script type="module" src="/src/index.ts"></script>
-</body>
+  </head>
+  <body>
+    <div id="app">
+      <div>
+        <div>구매할 금액은 얼마 입네까</div>
+        <input type="text" id="purchase-money-input" required />
+        <button id="purchase-money-button">확인</button>
+      </div>
+      <ul id="lotto-tickets-list"></ul>
+      <div>
+        <div>당첨 번호를 입력하세요</div>
+        <input
+          type="text"
+          class="winning-lotto-numbers-input"
+          maxlength="2"
+          required
+        />
+        <input
+          type="text"
+          class="winning-lotto-numbers-input"
+          maxlength="2"
+          required
+        />
+        <input
+          type="text"
+          class="winning-lotto-numbers-input"
+          maxlength="2"
+          required
+        />
+        <input
+          type="text"
+          class="winning-lotto-numbers-input"
+          maxlength="2"
+          required
+        />
+        <input
+          type="text"
+          class="winning-lotto-numbers-input"
+          maxlength="2"
+          required
+        />
+        <input
+          type="text"
+          class="winning-lotto-numbers-input"
+          maxlength="2"
+          required
+        />
+        <button id="winning-lotto-numbers-button">확인</button>
+      </div>
+      <div id="lotto-result"></div>
+    </div>
+    <script type="module" src="/src/index.ts"></script>
+  </body>
 </html>

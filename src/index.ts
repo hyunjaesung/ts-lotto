@@ -1,7 +1,7 @@
-import { sum } from "@/sum";
+import { Application } from "./Appication";
+import { LOTTO_VIEW_SELECTOR } from "./view/constant/selectors";
+import "./style.css";
 
-const root = document.querySelector("#app");
+const app = new Application({ selectors: LOTTO_VIEW_SELECTOR });
 
-if (root) {
-  root.innerHTML = `${sum(1, 2)}`;
-}
+app.init();
