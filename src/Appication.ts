@@ -1,12 +1,13 @@
 import { LottoGame } from "./business/LottoGame";
 import { LottoView } from "./view/LottoView";
-import { LottoTicketList } from "./view/components/LottoTicketList";
+import { LottoTicketListRenderer } from "./view/components/LottoTicketListRenderer";
 import { Button } from "./view/components/common/Button";
 import { Input } from "./view/components/common/Input";
-import { PurchaseMoneyInput } from "./view/components/common/PurchaseMoneyInput";
+import { PurchaseMoneyInput } from "./view/components/PurchaseMoneyInput";
 import { LottoViewSelector } from "./view/constant/selectors";
-import { WinningNumberInput } from "@/view/components/common/WinningNumberInput";
+import { WinningNumberInput } from "@/view/components/WinningNumberInput";
 import { LottoTicket } from "@/business/domain/LottoTicket";
+import { LottoResultRenderer } from "@/view/components/LottoResultRenderer";
 
 type Props = {
   selectors: LottoViewSelector;
@@ -28,7 +29,10 @@ export class Application {
         input: new Input(selectors.WINNING_LOTTO_NUMBER_INPUT),
         confirmButton: new Button(selectors.WINNING_LOTTO_NUMBER_BUTTON),
       }),
-      lottoTicketList: new LottoTicketList(selectors.LOTTO_TICKET_LIST),
+      lottoTicketListRenderer: new LottoTicketListRenderer(
+        selectors.LOTTO_TICKET_LIST
+      ),
+      lottoResultRenderer: new LottoResultRenderer(selectors.LOTTO_RESULT),
     });
   }
 
@@ -39,6 +43,7 @@ export class Application {
           const tickets = this.lottoGame.buyTickets({ purchaseMoney });
           this.lottoTickets = tickets;
           this.lottoView.renderTickets(tickets);
+          this.lottoView.purchaseMoney.clear();
         } catch (e) {
           alert(e);
         }
@@ -52,7 +57,7 @@ export class Application {
             winningNumbers,
             lottoTickets: this.lottoTickets,
           });
-          console.log(result);
+          this.lottoView.renderResult(result);
         } catch (e) {
           alert(e);
         }

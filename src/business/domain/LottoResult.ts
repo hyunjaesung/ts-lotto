@@ -1,8 +1,8 @@
 import { LOTTO_PRICE } from "../constants";
-import { PRIZE_MONEY, PRIZE_NAME } from "../enum";
+import { PRIZE_MATCH_COUNT, PRIZE_MONEY, PRIZE_NAME } from "../enum";
 
 export class LottoResult {
-  private _result = {
+  readonly results = {
     [PRIZE_NAME.FIRST]: 0,
     [PRIZE_NAME.SECOND]: 0,
     [PRIZE_NAME.THIRD]: 0,
@@ -12,36 +12,32 @@ export class LottoResult {
 
   setResult({ matchCount }: { matchCount: number }) {
     switch (matchCount) {
-      case 6:
-        this._result[PRIZE_NAME.FIRST]++;
+      case PRIZE_MATCH_COUNT.FIRST:
+        this.results[PRIZE_NAME.FIRST]++;
         break;
-      case 5:
-        this._result[PRIZE_NAME.SECOND]++;
+      case PRIZE_MATCH_COUNT.SECOND:
+        this.results[PRIZE_NAME.SECOND]++;
         break;
-      case 4:
-        this._result[PRIZE_NAME.THIRD]++;
+      case PRIZE_MATCH_COUNT.THIRD:
+        this.results[PRIZE_NAME.THIRD]++;
         break;
-      case 3:
-        this._result[PRIZE_NAME.FOURTH]++;
+      case PRIZE_MATCH_COUNT.FOURTH:
+        this.results[PRIZE_NAME.FOURTH]++;
         break;
       default:
-        this._result[PRIZE_NAME.FAIL]++;
+        this.results[PRIZE_NAME.FAIL]++;
         break;
     }
   }
 
-  get result() {
-    return this._result;
-  }
-
   getRateOfReturn() {
     const totalPrizeMoney =
-      this._result[PRIZE_NAME.FIRST] * PRIZE_MONEY.FIRST +
-      this._result[PRIZE_NAME.SECOND] * PRIZE_MONEY.SECOND +
-      this._result[PRIZE_NAME.THIRD] * PRIZE_MONEY.THIRD +
-      this._result[PRIZE_NAME.FOURTH] * PRIZE_MONEY.FOURTH;
+      this.results[PRIZE_NAME.FIRST] * PRIZE_MONEY.FIRST +
+      this.results[PRIZE_NAME.SECOND] * PRIZE_MONEY.SECOND +
+      this.results[PRIZE_NAME.THIRD] * PRIZE_MONEY.THIRD +
+      this.results[PRIZE_NAME.FOURTH] * PRIZE_MONEY.FOURTH;
 
-    const ticketCount = Object.values(this._result).reduce(
+    const ticketCount = Object.values(this.results).reduce(
       (acc, cur) => acc + cur
     );
 

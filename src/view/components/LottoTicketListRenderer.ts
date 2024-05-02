@@ -4,7 +4,7 @@ const lottoTicketTemplate = (numbers: number[]) => `
     <li>${numbers.join(", ")}</li>
 `;
 
-export class LottoTicketList {
+export class LottoTicketListRenderer {
   private readonly el: HTMLUListElement;
 
   constructor(selector: string) {

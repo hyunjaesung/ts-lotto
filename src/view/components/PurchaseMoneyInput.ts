@@ -1,5 +1,5 @@
-import { Button } from "./Button";
-import { Input } from "./Input";
+import { Button } from "./common/Button";
+import { Input } from "./common/Input";
 
 export class PurchaseMoneyInput {
   private readonly input: Input;
@@ -18,5 +18,9 @@ export class PurchaseMoneyInput {
 
   init({ onConfirm }: { onConfirm: (value: number) => void }) {
     this.confirmButton.addClickEventListener(() => onConfirm(this.input.value));
+  }
+
+  clear() {
+    this.input.clear();
   }
 }

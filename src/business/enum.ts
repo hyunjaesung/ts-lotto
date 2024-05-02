@@ -13,3 +13,11 @@ export enum PRIZE_MONEY {
   FOURTH = 5_000,
   FAIL = 0,
 }
+
+export enum PRIZE_MATCH_COUNT {
+  FIRST = 6,
+  SECOND = 5,
+  THIRD = 4,
+  FOURTH = 3,
+  FAIL = 0,
+}

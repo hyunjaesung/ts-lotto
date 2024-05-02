@@ -29,8 +29,10 @@ export class LottoResultCalculator {
   }
 
   private getMatchCount(ticket: LottoTicket) {
-    return ticket.lottoNumbers.filter(number =>
-      this.winningNumbers.includes(number)
+    return ticket.lottoNumbers.filter(lottoNumber =>
+      this.winningNumbers.some(
+        winningNumber => winningNumber.number === lottoNumber.number
+      )
     ).length;
   }
 }
