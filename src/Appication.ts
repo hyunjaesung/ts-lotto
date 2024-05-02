@@ -32,8 +32,12 @@ export class Application {
   init() {
     this.lottoView.purchaseMoney.init({
       onConfirm: purchaseMoney => {
-        const tickets = this.lottoGame.buyTickets({ purchaseMoney });
-        this.lottoView.renderTickets(tickets);
+        try {
+          const tickets = this.lottoGame.buyTickets({ purchaseMoney });
+          this.lottoView.renderTickets(tickets);
+        } catch (e) {
+          alert(e);
+        }
       },
     });
   }
