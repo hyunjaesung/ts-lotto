@@ -1,7 +1,7 @@
-import { Button } from "./Button";
-import { Input } from "./Input";
+import { Input } from "@/view/components/common/Input";
+import { Button } from "@/view/components/common/Button";
 
-export class InputWithSubmit {
+export class WinningNumberInput {
   private readonly input: Input;
   private readonly confirmButton: Button;
 
@@ -16,9 +16,9 @@ export class InputWithSubmit {
     this.confirmButton = confirmButton;
   }
 
-  init({ onConfirm }: { onConfirm: (value: number) => void }) {
+  init({ onConfirm }: { onConfirm: (value: number[]) => void }) {
     this.confirmButton.addClickEventListener(() =>
-      onConfirm(+this.input.value)
+      onConfirm(this.input.values)
     );
   }
 }

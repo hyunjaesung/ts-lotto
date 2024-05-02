@@ -2,6 +2,8 @@ import { LottoNumber } from "./domain/LottoNumber";
 import { LottoResultCalculator } from "./domain/LottoResultCalculator";
 import { LottoTicket } from "./domain/LottoTicket";
 import { LottoTicketGenerator } from "./generator/LottoTicketGenerator";
+import { LottoNumberValidator } from "@/business/validator/LottoNumberValidator";
+import { LottoTicketsValidator } from "@/business/validator/LottoTicketsValidator";
 
 export class LottoGame {
   buyTickets({ purchaseMoney }: { purchaseMoney: number }) {
@@ -15,10 +17,8 @@ export class LottoGame {
     winningNumbers: number[];
     lottoTickets: LottoTicket[];
   }) {
-    // TODO 예외처리
-    // 1. 중복된 숫자가 있는지
-    // 2. 1~45 사이의 숫자인지
-    // 3. 6개의 숫자인지
+    LottoTicketsValidator.validate(lottoTickets);
+    LottoNumberValidator.validate(winningNumbers);
 
     const winningLottoNumbers = [...winningNumbers].map(
       number => new LottoNumber(number)

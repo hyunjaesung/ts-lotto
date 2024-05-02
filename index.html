@@ -10,17 +10,46 @@
     <div id="app">
       <div>
         <div>구매할 금액은 얼마 입네까</div>
-        <input type="number" id="purchase-money-input" required />
+        <input type="text" id="purchase-money-input" required />
         <button id="purchase-money-button">확인</button>
       </div>
       <ul id="lotto-tickets-list"></ul>
       <div>
         <div>당첨 번호를 입력하세요</div>
         <input
-          type="number"
-          id="winning-lotto-numbers-input"
-          minlength="6"
-          maxlength="6"
+          type="text"
+          class="winning-lotto-numbers-input"
+          maxlength="2"
+          required
+        />
+        <input
+          type="text"
+          class="winning-lotto-numbers-input"
+          maxlength="2"
+          required
+        />
+        <input
+          type="text"
+          class="winning-lotto-numbers-input"
+          maxlength="2"
+          required
+        />
+        <input
+          type="text"
+          class="winning-lotto-numbers-input"
+          maxlength="2"
+          required
+        />
+        <input
+          type="text"
+          class="winning-lotto-numbers-input"
+          maxlength="2"
+          required
+        />
+        <input
+          type="text"
+          class="winning-lotto-numbers-input"
+          maxlength="2"
           required
         />
         <button id="winning-lotto-numbers-button">확인</button>

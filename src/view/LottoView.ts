@@ -1,16 +1,17 @@
 import { LottoTicket } from "@/business/domain/LottoTicket";
 import { LottoTicketList } from "./components/LottoTicketList";
-import { InputWithSubmit } from "./components/common/InputWithSubmit";
+import { PurchaseMoneyInput } from "./components/common/PurchaseMoneyInput";
+import { WinningNumberInput } from "@/view/components/common/WinningNumberInput";
 
 type Props = {
-  purchaseMoney: InputWithSubmit;
-  winningLottoNumbers: InputWithSubmit;
+  purchaseMoney: PurchaseMoneyInput;
+  winningLottoNumbers: WinningNumberInput;
   lottoTicketList: LottoTicketList;
 };
 
 export class LottoView {
-  readonly purchaseMoney: InputWithSubmit;
-  readonly winningLottoNumbers: InputWithSubmit;
+  readonly purchaseMoney: PurchaseMoneyInput;
+  readonly winningLottoNumbers: WinningNumberInput;
   readonly lottoTicketList: LottoTicketList;
 
   constructor({ purchaseMoney, winningLottoNumbers, lottoTicketList }: Props) {
