@@ -71,10 +71,13 @@ class WinningLottoInputView {
     callback: (lotto: LottoNumbers) => void
   ) {
     this._buttonElement.addEventListener("click", () => {
-      const lottoNumbers = this.convertToLottoNumbers();
-      console.log(lottoNumbers);
-      if (this.checkValidation(lottoNumbers)) {
-        callback(lottoNumbers);
+      try {
+        const lottoNumbers = this.convertToLottoNumbers();
+        if (this.checkValidation(lottoNumbers)) {
+          callback(lottoNumbers);
+        }
+      } catch (error) {
+        alert((error as Error).message);
       }
     });
   }
