@@ -22,6 +22,7 @@ export default class LottoResultChecker {
   }
 
   public checkLottoResults(lottos: LottoNumbers[], winningLotto: LottoNumbers) {
+    this._matchingResult.reset();
     lottos.forEach(lotto => this.checkEachLotto(lotto, winningLotto));
     return this._matchingResult;
   }

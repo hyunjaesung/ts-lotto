@@ -32,6 +32,7 @@ class LottoResultView {
   }
 
   public render(matchingResult: LottoMatchingResult, rateOfReturn: number) {
+    this._sectionElement.innerHTML = "";
     this._sectionElement.appendChild(this.renderMatchingResult(matchingResult));
     this._sectionElement.appendChild(this.renderRateOfReturn(rateOfReturn));
   }

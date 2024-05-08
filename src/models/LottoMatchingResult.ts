@@ -12,6 +12,10 @@ export default class LottoMatchingResult {
     return this._matchingResult;
   }
 
+  public reset() {
+    this._matchingResult = LottoMatchesFactory.build();
+  }
+
   public setLottoMatch(numMatch: number) {
     const matchResultIndex = this._matchingResult.findIndex(
       match => match.numMatch === numMatch
