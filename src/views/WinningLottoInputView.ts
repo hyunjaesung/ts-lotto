@@ -1,3 +1,5 @@
+import LottoNumbers from "@/models/LottoNumbers";
+
 class WinningLottoInputView {
   private _inputElements: HTMLInputElement[];
   private _buttonElement: HTMLButtonElement;
@@ -20,12 +22,16 @@ class WinningLottoInputView {
     this._buttonElement = buttonElement;
   }
 
-  public addLottoCheckButtonClickEvent(callback: (lotto: number[]) => void) {
-    const winningLotto = this._inputElements.map(input =>
-      parseInt(input.value)
-    );
+  public addLottoCheckButtonClickEvent(
+    callback: (lotto: LottoNumbers) => void
+  ) {
     this._buttonElement.addEventListener("click", () => {
-      callback(winningLotto);
+      const winningLotto = this._inputElements.map(input =>
+        parseInt(input.value)
+      );
+      const lottoNumbers = new LottoNumbers();
+      lottoNumbers.numbers = winningLotto;
+      callback(lottoNumbers);
     });
   }
 }

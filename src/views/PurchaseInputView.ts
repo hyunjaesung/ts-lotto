@@ -20,7 +20,6 @@ export default class PurchaseInputView {
   public addPurchaseButtonClickEvent(callback: (value: number) => void) {
     this._buttonElement.addEventListener("click", () => {
       callback(parseInt(this._inputElement.value));
-      this._inputElement.value = "";
     });
   }
 }

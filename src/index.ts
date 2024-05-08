@@ -1,7 +1,7 @@
-import { generateLottoNumbers } from "./generateLottoNumbers";
+import { playLotto } from "./playLotto";
 
 const root = document.querySelector("#app");
 
 if (root) {
-  generateLottoNumbers();
+  playLotto();
 }
