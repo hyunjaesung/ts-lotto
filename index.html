@@ -4,10 +4,31 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
+    <title>Lotto Generator</title>
 </head>
 <body>
-<div id="app"></div>
+<div id="app">
+    <section>
+        <label>
+            <span>구입금액을 입력해 주세요.</span>
+            <input id="input-purcahse" type="number" step="1000"/>
+        </label>
+        <button type="button" id="button-purchase">구입</button>
+    </section>
+    <section id="section-lotto-numbers"></section>
+    <section id="section-winning-lotto">
+        <ul>
+            <li><input type="number" step="1" min="1" max="45"/></li>
+            <li><input type="number" step="1" min="1" max="45"/></li>
+            <li><input type="number" step="1" min="1" max="45"/></li>
+            <li><input type="number" step="1" min="1" max="45"/></li>
+            <li><input type="number" step="1" min="1" max="45"/></li>
+            <li><input type="number" step="1" min="1" max="45"/></li>
+        </ul>
+        <button type="button" id="button-check-lotto">확인</button>
+    </section>
+    <section id="section-lotto-result"></section>
+</div>
 <script type="module" src="/src/index.ts"></script>
 </body>
 </html>

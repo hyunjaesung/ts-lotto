@@ -1,7 +1,5 @@
-import { sum } from "@/sum";
+// const root = document.querySelector("#app");
 
-const root = document.querySelector("#app");
+// if (root) {
 
-if (root) {
-  root.innerHTML = `${sum(1, 2)}`;
-}
+// }
