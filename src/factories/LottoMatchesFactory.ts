@@ -1,4 +1,4 @@
-import { LOTTERY_AWARD } from "@/constants/priceLottery";
+import { LOTTERY_AWARD } from "@/constants/lottery";
 import LottoMatch from "@/models/LottoMatch";
 
 export default class LottoMatchesFactory {

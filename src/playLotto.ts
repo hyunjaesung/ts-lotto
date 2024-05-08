@@ -6,7 +6,7 @@ import {
   SECTION_LOTTO_RESULT,
   SECTION_WINNING_LOTTO,
 } from "./constants/domSelector";
-import { PRICE_PER_LOTTERY } from "./constants/priceLottery";
+import { PRICE_PER_LOTTERY } from "./constants/lottery";
 import LottoGeneratorController from "./controllers/LottoController";
 import LottoMatchingResult from "./models/LottoMatchingResult";
 import LottoNumberGenerator from "./services/LottoNumberGenerator";
