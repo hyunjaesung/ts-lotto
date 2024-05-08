@@ -3,6 +3,21 @@
     font-family: Avenir, Helvetica, Arial, sans-serif;
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
-    margin-top: 60px;
     text-align: center;
+}
+
+#app section {
+    margin-top: 50px;
+}
+
+ul {
+    list-style: none;
+}
+
+
+#section-winning-lotto ul {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
 }
