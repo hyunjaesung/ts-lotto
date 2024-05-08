@@ -1,2 +1,0 @@
-export const PRICE_PER_LOTTERY = 1000;
-export const LOTTERY_AWARD = [5000, 50000, 1500000, 2000000000];
