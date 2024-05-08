@@ -1,5 +1,7 @@
-// const root = document.querySelector("#app");
+import { generateLottoNumbers } from "./generateLottoNumbers";
 
-// if (root) {
+const root = document.querySelector("#app");
 
-// }
+if (root) {
+  generateLottoNumbers();
+}

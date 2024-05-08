@@ -18,6 +18,7 @@
 - models/
     - LottoNumbers
         - _numbers: number[6]
+        - add (num)
     - WinningLottoNumber => for step2
         - _lottoNumbers: LottoNumbers
         - _bonusNumber: number
