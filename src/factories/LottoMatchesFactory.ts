@@ -1,11 +1,11 @@
-import { LOTTERY_AWARD } from "@/constants/lottery";
+import { LOTTERY_AWARD_NUM_HIT } from "@/constants/lottery";
 import LottoMatch from "@/models/LottoMatch";
 
 export default class LottoMatchesFactory {
   static build() {
     const matchingList = [];
-    for (let i = 0; i < LOTTERY_AWARD.length; i++) {
-      matchingList.push(new LottoMatch(i + 3, LOTTERY_AWARD[i]));
+    for (const [num_hit, award] of Object.entries(LOTTERY_AWARD_NUM_HIT)) {
+      matchingList.push(new LottoMatch(parseInt(num_hit), award));
     }
     return matchingList;
   }
