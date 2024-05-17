@@ -18,16 +18,16 @@ interface LottoControllerProps {
 }
 
 export default class LottoController {
-  private _purchaseInputView: PurchaseInputView | undefined;
+  private _purchaseInputView?: PurchaseInputView;
   private _lottoPurchase: LottoPurchase;
   private _lottoNumbersGenerator: LottoNumberGenerator;
-  private _lottoNumberListView: LottoNumberListView | undefined;
-  private _winningLottoInputView: WinningLottoInputView | undefined;
-  private _lottoResultView: LottoResultView | undefined;
+  private _lottoNumberListView?: LottoNumberListView;
+  private _winningLottoInputView?: WinningLottoInputView;
+  private _lottoResultView?: LottoResultView;
   private _lottoResultChecker: LottoResultChecker;
 
-  private _lottoPrediction: LottoNumbers[] | undefined;
-  private _priceLottery: number | undefined;
+  private _lottoPrediction?: LottoNumbers[];
+  private _priceLottery?: number;
 
   constructor({
     purchaseInputView,
