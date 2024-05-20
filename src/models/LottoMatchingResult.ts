@@ -1,5 +1,5 @@
 import LottoMatchesFactory from "@/factories/LottoMatchesFactory";
-import LottoMatch from "./LottoMatch";
+import { LottoMatch } from "@/types/LottoMatch";
 
 export default class LottoMatchingResult {
   private _matchingResult: LottoMatch[];
@@ -16,18 +16,18 @@ export default class LottoMatchingResult {
     this._matchingResult = LottoMatchesFactory.build();
   }
 
-  public setLottoMatch(numMatch: number) {
+  public setLottoMatch(numHit: number) {
     const matchResultIndex = this._matchingResult.findIndex(
-      match => match.numMatch === numMatch
+      match => match.numHit === numHit
     );
     if (matchResultIndex !== -1) {
-      this._matchingResult[matchResultIndex].numHit++;
+      this._matchingResult[matchResultIndex].numMatch++;
     }
   }
 
   public getTotalReward() {
     const reward = this._matchingResult.reduce(
-      (a, b) => a + b.amountReward * b.numHit,
+      (a, b) => a + b.price * b.numMatch,
       0
     );
     return reward;

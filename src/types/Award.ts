@@ -1,4 +1,4 @@
 export type Award = {
-  hitCount: number;
+  numHit: number;
   price: number;
 };

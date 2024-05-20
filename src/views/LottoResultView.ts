@@ -1,4 +1,5 @@
-import LottoMatch from "@/models/LottoMatch";
+// import LottoMatch from "@/models/LottoMatch";
+import { LottoMatch } from "@/types/LottoMatch";
 import LottoMatchingResult from "@/models/LottoMatchingResult";
 
 class LottoResultView {
@@ -13,7 +14,7 @@ class LottoResultView {
 
   private renderEachMatch(lottoMatch: LottoMatch) {
     const liElement = document.createElement("li");
-    liElement.textContent = `${lottoMatch.numMatch}개 일치 (${lottoMatch.amountReward}원) - ${lottoMatch.numHit}개`;
+    liElement.textContent = `${lottoMatch.numMatch}개 일치 (${lottoMatch.price}원) - ${lottoMatch.numHit}개`;
     return liElement;
   }
 
