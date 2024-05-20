@@ -12,8 +12,8 @@ export default class LottoResultChecker {
     const numMatch = lotto.numbers.filter(number =>
       winningLotto.numbers.includes(number)
     ).length;
-    if (numMatch > 3) {
-      this._matchingResult.setLottoMatch(numMatch);
+    if (numMatch >= 3) {
+      this._matchingResult.setLottoMatchByNumHit(numMatch);
     }
   }
 
@@ -22,7 +22,7 @@ export default class LottoResultChecker {
   }
 
   public checkLottoResults(lottos: LottoNumbers[], winningLotto: LottoNumbers) {
-    this._matchingResult.reset();
+    this._matchingResult.initMatchingResult();
     lottos.forEach(lotto => this.checkEachLotto(lotto, winningLotto));
     return this._matchingResult;
   }

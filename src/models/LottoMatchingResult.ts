@@ -5,14 +5,15 @@ export default class LottoMatchingResult {
   private _matchingResult: LottoMatch[];
 
   constructor() {
-    this._matchingResult = LottoMatchesFactory.build();
+    this._matchingResult = [];
+    this.initMatchingResult();
   }
 
   get matchingResult() {
     return this._matchingResult;
   }
 
-  public reset() {
+  public initMatchingResult() {
     this._matchingResult = LottoMatchesFactory.build();
   }
 
@@ -20,9 +21,10 @@ export default class LottoMatchingResult {
     const matchResultIndex = this._matchingResult.findIndex(
       match => match.numHit === numHit
     );
-    if (matchResultIndex !== -1) {
-      this._matchingResult[matchResultIndex].numMatch++;
+    if (matchResultIndex === -1) {
+      throw new Error(`${numHit}을 가진 numHit이 없습니다`);
     }
+    this._matchingResult[matchResultIndex].numMatch++;
   }
 
   public getTotalReward() {
