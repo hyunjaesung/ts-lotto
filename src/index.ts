@@ -1,7 +1,7 @@
-import { sum } from "@/sum";
+import { playLotto } from "./playLotto";
 
 const root = document.querySelector("#app");
 
 if (root) {
-  root.innerHTML = `${sum(1, 2)}`;
+  playLotto();
 }
