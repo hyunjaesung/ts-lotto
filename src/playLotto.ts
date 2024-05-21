@@ -7,8 +7,9 @@ import {
   SECTION_WINNING_LOTTO,
 } from "./constants/domSelector";
 import { PRICE_PER_LOTTERY } from "./constants/lottery";
-import LottoGeneratorController from "./controllers/LottoController";
+import LottoController from "./controllers/LottoController";
 import LottoMatchingResult from "./models/LottoMatchingResult";
+import Lotto from "./services/Lotto";
 import LottoNumberGenerator from "./services/LottoNumberGenerator";
 import LottoPurchase from "./services/LottoPurchase";
 import LottoResultChecker from "./services/LottoResultChecker";
@@ -49,7 +50,7 @@ const domSelectors = () => {
   };
 };
 
-export const playLotto = () => {
+const initViews = () => {
   const {
     inputPurchase,
     buttonPurchase,
@@ -58,31 +59,42 @@ export const playLotto = () => {
     buttonCheckLotto,
     sectionLottoResult,
   } = domSelectors();
+  const purchaseInputView = new PurchaseInputView(
+    inputPurchase,
+    buttonPurchase
+  );
+  const lottoNumberListView = new LottoNumberListView(sectionLottoNumbers);
+
+  const winningLottoInputView = new WinningLottoInputView(
+    inputsWinningLotto,
+    buttonCheckLotto
+  );
+  const lottoResultView = new LottoResultView(sectionLottoResult);
+  return {
+    purchaseInputView,
+    lottoNumberListView,
+    winningLottoInputView,
+    lottoResultView,
+  };
+};
+
+const initLotto = () => {
+  const lottoPurchase = new LottoPurchase(PRICE_PER_LOTTERY);
+  const lottoNumbersGenerator = new LottoNumberGenerator();
+  const lottoResultChecker = new LottoResultChecker(new LottoMatchingResult());
+  const lotto = new Lotto({
+    lottoPurchase,
+    lottoNumbersGenerator,
+    lottoResultChecker,
+  });
+  return lotto;
+};
+
+export const playLotto = () => {
   try {
-    const purchaseInputView = new PurchaseInputView(
-      inputPurchase,
-      buttonPurchase
-    );
-    const lottoNumberListView = new LottoNumberListView(sectionLottoNumbers);
-    const lottoPurchase = new LottoPurchase(PRICE_PER_LOTTERY);
-    const lottoNumbersGenerator = new LottoNumberGenerator();
-    const winningLottoInputView = new WinningLottoInputView(
-      inputsWinningLotto,
-      buttonCheckLotto
-    );
-    const lottoResultView = new LottoResultView(sectionLottoResult);
-    const lottoResultChecker = new LottoResultChecker(
-      new LottoMatchingResult()
-    );
-    new LottoGeneratorController({
-      purchaseInputView,
-      lottoPurchase,
-      lottoNumbersGenerator,
-      lottoNumberListView,
-      winningLottoInputView,
-      lottoResultView,
-      lottoResultChecker,
-    });
+    const lotto = initLotto();
+    const views = initViews();
+    new LottoController({ ...views, lotto });
   } catch (error) {
     console.error(error);
   }
