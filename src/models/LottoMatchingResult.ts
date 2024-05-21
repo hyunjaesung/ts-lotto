@@ -17,7 +17,7 @@ export default class LottoMatchingResult {
     this._matchingResult = LottoMatchesFactory.build();
   }
 
-  public setLottoMatch(numHit: number) {
+  public setLottoMatchByNumHit(numHit: number) {
     const matchResultIndex = this._matchingResult.findIndex(
       match => match.numHit === numHit
     );
